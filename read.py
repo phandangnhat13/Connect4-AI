@@ -11,7 +11,3 @@ def read_book_file(path):
 
 # Example usage
 read_book_file("7x6.book")
-
-
-
-
