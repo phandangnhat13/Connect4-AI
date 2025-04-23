@@ -1,7 +1,7 @@
 #ifndef MOVE_SORTER_H
 #define MOVE_SORTER_H
 
-#include "Position.hpp"
+#include "Position.h"
 
 namespace GameSolver {
 namespace Connect4 {

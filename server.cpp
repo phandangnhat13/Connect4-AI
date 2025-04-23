@@ -1,8 +1,8 @@
 #include "httplib.h"
-#include "json.hpp"
-#include "Position.hpp"
-#include "Solver.hpp"
-#include "OpeningBook.hpp"
+#include "json.h"
+#include "Position.h"
+#include "Solver.h"
+#include "OpeningBook.h"
 #include <iostream>
 #include <vector>
 #include <string>

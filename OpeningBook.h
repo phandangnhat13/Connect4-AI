@@ -4,8 +4,8 @@
 #include <iostream>
 #include <fstream>
 #include <cmath>
-#include "Position.hpp"
-#include "TranspositionTable.hpp"
+#include "Position.h"
+#include "TranspositionTable.h"
 
 using namespace std;
 

@@ -1,6 +1,6 @@
 #include <cassert>
-#include "Solver.hpp"
-#include "MoveSorter.hpp"
+#include "Solver.h"
+#include "MoveSorter.h"
 
 using namespace GameSolver::Connect4;
 
