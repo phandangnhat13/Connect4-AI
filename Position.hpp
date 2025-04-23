@@ -4,7 +4,6 @@
 #include <string>
 #include <cstdint>
 #include <cassert>
-#include <cstdint>
 
 using namespace std;
 
@@ -76,7 +75,6 @@ class Position {
   // using MyUint64 = std::conditional<true, long unsigned int, __int128>::type;
   // __int128 is a g++ non portable type. Use the following line limited to 64bits board for C++ compatibility
   // using position_t = uint64_t;
-  typedef uint64_t uint64_t;
 
   static constexpr int MIN_SCORE = -(WIDTH*HEIGHT) / 2 + 3;
   static constexpr int MAX_SCORE = (WIDTH * HEIGHT + 1) / 2 - 3;
