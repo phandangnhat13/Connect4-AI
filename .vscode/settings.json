@@ -4,6 +4,13 @@
         "xutility": "cpp",
         "algorithm": "cpp",
         "ios": "cpp",
-        "type_traits": "cpp"
+        "type_traits": "cpp",
+        "atomic": "cpp",
+        "charconv": "cpp",
+        "cstdint": "cpp",
+        "random": "cpp",
+        "ranges": "cpp",
+        "ratio": "cpp",
+        "xmemory": "cpp"
     }
 }
