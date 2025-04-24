@@ -1,5 +1,6 @@
 .vscode
 .vscode/*
+.idea
 
 # Compiled Object files
 *.slo

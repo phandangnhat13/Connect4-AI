@@ -44,13 +44,6 @@ class MoveSorter {
   }
 
   /**
-   * reset (empty) the container
-   */
-  void reset() {
-    size = 0;
-  }
-
-  /**
    * Build an empty container
    */
   MoveSorter(): size{0} {
