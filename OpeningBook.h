@@ -108,28 +108,6 @@ namespace Connect4 {
             return true;
         }
     
-        bool save(const string& filename) const {
-            ofstream ofs(filename, ios::binary);
-            if (!ofs.is_open()) return false;
-    
-            // Write header
-            char header[6] = {
-                static_cast<char>(width),
-                static_cast<char>(height),
-                static_cast<char>(depth),
-                static_cast<char>(partial_key_bytes),
-                static_cast<char>(value_bytes),
-                static_cast<char>(log_size)
-            };
-            ofs.write(header, 6);
-    
-            // Write partial keys and values
-            ofs.write(reinterpret_cast<const char*>(partial_keys.data()), partial_keys.size());
-            ofs.write(reinterpret_cast<const char*>(values.data()), values.size());
-    
-            return !!ofs;
-        }
-    
         int get(const Position& P) const {
             if (depth == -1 || P.nbMoves() > depth || size == 0)
                 return 0;
@@ -143,10 +121,6 @@ namespace Connect4 {
             memcpy(&stored_key, partial_keys.data() + index * partial_key_bytes, partial_key_bytes);
     
             return (stored_key == expected_key) ? values[index] : 0;
-        }
-    
-        bool is_loaded() const { 
-            return depth != -1 && !partial_keys.empty() && !values.empty();
         }
     };
 } // namespace Connect4

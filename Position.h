@@ -73,9 +73,6 @@ class Position {
   static constexpr int MIN_SCORE = -(WIDTH*HEIGHT) / 2 + 3;
   static constexpr int MAX_SCORE = (WIDTH * HEIGHT + 1) / 2 - 3;
 
-  static_assert(WIDTH < 10, "Board's width must be less than 10");
-  static_assert(WIDTH * (HEIGHT + 1) <= sizeof(uint64_t)*8, "Board does not fit into position_t bitmask");
-
   /**
    * Plays a possible move given by its bitmap representation
    *
@@ -100,7 +97,7 @@ class Position {
    *         Caller can check if the move sequence was valid by comparing the number of
    *         processed moves to the length of the sequence.
    */
-  unsigned int play(const std::string &seq) {
+  unsigned int play(const string &seq) {
     for(unsigned int i = 0; i < seq.size(); i++) {
       int col = seq[i] - '1';
       if(col < 0 || col >= Position::WIDTH || !canPlay(col) || isWinningMove(col)) return i; // invalid move
@@ -308,7 +305,8 @@ class Position {
   }
 
   // Static bitmaps
-  template<int width, int height> struct bottom {static constexpr uint64_t mask = bottom<width-1, height>::mask | uint64_t(1) << (width - 1) * (height + 1);};
+  template<int width, int height> struct bottom {
+    static constexpr uint64_t mask = bottom<width-1, height>::mask | uint64_t(1) << (width - 1) * (height + 1);};
   template <int height> struct bottom<0, height> {static constexpr uint64_t mask = 0;};
 
   static constexpr uint64_t bottom_mask = bottom<WIDTH, HEIGHT>::mask;

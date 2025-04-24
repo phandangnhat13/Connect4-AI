@@ -3,6 +3,7 @@
 #include "MoveSorter.h"
 
 using namespace GameSolver::Connect4;
+using namespace std;
 
 namespace GameSolver {
 namespace Connect4 {
@@ -63,7 +64,7 @@ int Solver::negamax(const Position &P, int alpha, int beta) {
   int val = book.get(P);
   if(val) 
   {
-    // std::cout<<"val: "<<val<<'\n';
+    // cout<<"val: "<<val<<'\n';
     return val + Position::MIN_SCORE - 1; // look for solutions stored in opening book
   }
 
@@ -112,8 +113,8 @@ int Solver::solve(const Position &P, bool weak) {
   return min;
 }
 
-std::vector<int> Solver::analyze(const Position &P, bool weak) {
-  std::vector<int> scores(Position::WIDTH, Solver::INVALID_MOVE);
+vector<int> Solver::analyze(const Position &P, bool weak) {
+  vector<int> scores(Position::WIDTH, Solver::INVALID_MOVE);
   for (int col = 0; col < Position::WIDTH; col++)
     if (P.canPlay(col)) {
       if(P.isWinningMove(col)) scores[col] = (Position::WIDTH * Position::HEIGHT + 1 - P.nbMoves()) / 2;
